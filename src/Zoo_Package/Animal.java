@@ -6,7 +6,7 @@ public abstract class Animal extends SerVivo {
 	protected Integer idAnimal=0;
 	protected Boolean fueAlimentado=false;
 	
-	public Animal (String especie, Boolean esMarino, Integer idSector, Boolean estaEnCuidados, Integer idAnimal, Boolean fueAlimentado){
+	public Animal (Especie especie, Boolean esMarino, Integer idSector, Boolean estaEnCuidados, Integer idAnimal, Boolean fueAlimentado){
 		super(especie,esMarino,idSector);
 		this.estaEnCuidados=estaEnCuidados;
 		this.idAnimal=idAnimal;
