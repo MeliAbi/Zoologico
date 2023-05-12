@@ -16,6 +16,26 @@ public class Planta extends SerVivo{
 		// TODO Auto-generated method stub
 		
 	}
+	public Boolean getFueRegada() {
+		return fueRegada;
+	}
+	public void setFueRegada(Boolean fueRegada) {
+		this.fueRegada = fueRegada;
+	}
+	public Boolean getFuePodada() {
+		return fuePodada;
+	}
+	public void setFuePodada(Boolean fuePodada) {
+		this.fuePodada = fuePodada;
+	}
+	public Integer getIdPlanta() {
+		return idPlanta;
+	}
+	public void setIdPlanta(Integer idPlanta) {
+		this.idPlanta = idPlanta;
+	}
+	
 	
 }
+
 
