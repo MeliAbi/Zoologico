@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 public class Test {
 	
-	//////////////CREACION DE OBJETO ZOOLOGICO//////////////
+	//////////////CREACION DE OBJETO DE TIPO ZOOLOGICO//////////////
 	
 	@org.junit.Test
 	public void queSeCreeZoologico() {
@@ -86,7 +86,7 @@ public class Test {
 		assertNotNull(nuevaPlanta);
 	}
 	
-	//////////////CREACION DE OBJETOS DE EMPLEADO//////////////
+	//////////////CREACION DE OBJETOS DE TIPO EMPLEADO//////////////
 	
 	@org.junit.Test
 	public void queSeCreeJardinero() {
@@ -193,7 +193,6 @@ public class Test {
 
 	}
 
-
 	@org.junit.Test
 	public void queSeAgreguePlantaAlZoologico() {
 
@@ -216,7 +215,6 @@ public class Test {
 		assertEquals(1,nuevoZoologico.getListaPlantas().size());
 	}
 	
-
 	@org.junit.Test
 	public void queSeAgregueJardinero() {
 		
@@ -241,7 +239,6 @@ public class Test {
 		
 	}
 	
-
 	@org.junit.Test
 	public void queSeAgregueVeterinario() {
 
@@ -265,7 +262,6 @@ public class Test {
 		assertEquals(1,nuevoZoologico.getListaVeterinarios().size());
 		
 	}
-	
 	
 	//////////////TESTS DE ALIMENTACION//////////////
 	
