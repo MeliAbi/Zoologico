@@ -6,10 +6,13 @@ public class Zoologico {
 
 	private String nombreZoo="";
 	private final Integer CAPACIDAD_MAX_POR_TIPO_ALIMENTACION=10;
+	private final Integer CAPACIDAD_MAX_POR_EMPLEADO=4;
 	private HashSet <AnimalCarnivoro> listaAnimalesCarnivoros;
 	private HashSet <AnimalHerbivoro> listaAnimalesHerbivoros;
 	private HashSet <AnimalOmnivoro> listaAnimalesOmnivoros;
 	private HashSet <Planta> listaPlantas;
+	private HashSet <Jardinero> listaJardineros;
+	private HashSet <Veterinario> listaVeterinarios;
 	
 	
 	public Zoologico(String nombreZoo) {
@@ -18,6 +21,9 @@ public class Zoologico {
 		listaAnimalesHerbivoros=new HashSet<AnimalHerbivoro>();
 		listaAnimalesOmnivoros=new HashSet<AnimalOmnivoro>();
 		listaPlantas=new HashSet<Planta>();
+		
+		listaJardineros=new HashSet<Jardinero>();
+		listaVeterinarios=new HashSet<Veterinario>();
 	}
 
 	
@@ -115,5 +121,49 @@ public class Zoologico {
 			listaPlantas.add(nuevaPlanta);
 		}
 	}
+
+
+
+	public void agregarJadinero(Jardinero nuevoJadinero) {
+		
+		if(listaJardineros.size()< CAPACIDAD_MAX_POR_EMPLEADO){
+			listaJardineros.add(nuevoJadinero);
+		}
+	}
+
+
+
+	public HashSet<Jardinero> getListaJardineros() {
+		return listaJardineros;
+	}
+
+
+
+	public void setListaJardineros(HashSet<Jardinero> listaJardineros) {
+		this.listaJardineros = listaJardineros;
+	}
+
+	
+
+	public HashSet<Veterinario> getListaVeterinarios() {
+		return listaVeterinarios;
+	}
+
+
+
+	public void setListaVeterinarios(HashSet<Veterinario> listaVeterinarios) {
+		this.listaVeterinarios = listaVeterinarios;
+	}
+
+
+
+	public void agregarVeterinario(Veterinario nuevoVeterinario) {
+		if(listaVeterinarios.size()< CAPACIDAD_MAX_POR_EMPLEADO){
+			listaVeterinarios.add(nuevoVeterinario);
+		}
+		
+	}
+	
+	
 
 }
