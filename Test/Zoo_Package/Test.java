@@ -10,7 +10,7 @@ public class Test {
 	public void queSeCreeZoologico() {
 		
 		// Inicializacion de Variables
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
@@ -128,7 +128,7 @@ public class Test {
 	public void queSeAgregueAnimalCarnivoroAlZoologico() {
 		
 		// Inicializacion de Variables
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Leon;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
@@ -151,7 +151,7 @@ public class Test {
 	public void queSeAgregueAnimalHerbivoroAlZoologico() {
 		
 		// Inicializacion de Variables
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 
 		Especie especie = Especie.Elefante;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
@@ -174,7 +174,7 @@ public class Test {
 	public void queSeAgregueAnimalOmnivoroAlZoologico() {
 		
 		// Inicializacion de Variables
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 
 		Especie especie = Especie.Oso;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
@@ -197,7 +197,7 @@ public class Test {
 	public void queSeAgreguePlantaAlZoologico() {
 
 		// Inicializacion de Variables
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 
 		Especie especie = Especie.Alga;
 		Boolean esMarino = true, fueRegada = false, fuePodada = false;
@@ -219,7 +219,7 @@ public class Test {
 	public void queSeAgregueJardinero() {
 		
 		// Inicializacion de Variables
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 		
 		String nombreEmpleado = "Pedro";
 		String apellidoEmpleado= "Pascal"; 
@@ -243,7 +243,7 @@ public class Test {
 	public void queSeAgregueVeterinario() {
 
 		// Inicializacion de Variables
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 		
 		String nombreEmpleado = "Pedro";
 		String apellidoEmpleado= "Pascal"; 
@@ -269,7 +269,7 @@ public class Test {
 	public void buscarAnimalHerbivoro() { 
 		
 		// Inicializacion de Variables
-		String nombreZoo = "Temaiken";
+		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Elefante;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
@@ -291,7 +291,7 @@ public class Test {
 	public void buscarAnimalCarnivoro() { 
 		
 		// Inicializacion de Variables
-		String nombreZoo = "Temaiken";
+		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Tigre;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
@@ -309,12 +309,56 @@ public class Test {
 		assertNotNull(nuevoZoologico.buscarAnimalCarnivoro(nuevoAnimalCarnivoro.getIdAnimal()));
 	}
 	
+	@org.junit.Test
+	public void buscarAnimalOmnivoro() { 
+		
+		// Inicializacion de Variables
+		String nombreZoo = "TEMAIKEN";
+		
+		Especie especie = Especie.Oso;
+		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 3;
+		Sector idSector=Sector.Sector_2;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);;
+		
+		//Validacion del Test
+		assertNotNull(nuevoZoologico.buscarAnimalOmnivoro(nuevoAnimalOmnivoro.getIdAnimal()));
+	}
+	
+	@org.junit.Test
+	public void buscarPlanta() { 
+		
+		// Inicializacion de Variables
+		String nombreZoo = "TEMAIKEN";
+		
+		Especie especie = Especie.Helecho;
+		Boolean esMarino = false, fueRegada = false, fuePodada = false;
+		Sector idSector = Sector.Sector_4;
+		Integer idPlanta = 122;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Planta nuevaPlanta = new Planta(especie, esMarino, idSector, fueRegada, fuePodada, idPlanta);
+		
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarPlanta(nuevaPlanta);;
+		
+		//Validacion del Test
+		assertNotNull(nuevoZoologico.buscarPlanta(nuevaPlanta.getIdPlanta()));
+	}
+	
 	//////////////TESTS DE ALIMENTACION//////////////
 	
 	@org.junit.Test
 	public void queElVeterinarioLeDeComidaAlAnimalHerbivoroYEsteComa() {
 		// Inicializacion de Variables
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Elefante;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
@@ -352,7 +396,7 @@ public class Test {
 	public void queElVeterinarioLeDeCarneAlAnimalHerbivoroYEsteNoComa() {
 		// Inicializacion de Variables
 		
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Elefante;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
@@ -387,7 +431,7 @@ public class Test {
 	public void queElVeterinarioLeDeComidaAlAnimalCarnivoroYEsteComa() {
 		// Inicializacion de Variables
 		
-		String nombreZoo = "";
+		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Tigre;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;

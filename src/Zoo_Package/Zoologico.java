@@ -182,5 +182,23 @@ public class Zoologico {
 		
 		return null;
 	}
+	
+	public AnimalOmnivoro buscarAnimalOmnivoro(Integer idAnimal) {
+		for(AnimalOmnivoro animalBuscado:listaAnimalesOmnivoros) {
+			if(animalBuscado.getIdAnimal()==idAnimal) {
+				return animalBuscado;
+			}
+		}
+		return null;
+	}
 
+
+	public Planta buscarPlanta(Integer idPlanta) {
+		for(Planta plantaBuscada:listaPlantas) {
+			if(plantaBuscada.getIdPlanta()==idPlanta) {
+				return plantaBuscada;
+			}
+		}
+		return null;
+	}
 }
