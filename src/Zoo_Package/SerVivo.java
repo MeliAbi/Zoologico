@@ -3,15 +3,15 @@ package Zoo_Package;
 public abstract class SerVivo {
 	protected Especie especie = null;
 	protected Boolean esMarino = false;
-	protected Integer idSector = 0; 
+	protected Sector idSector = null; 
 	
-	public SerVivo(Especie especie, Boolean esMarino, Integer idSector){
+	public SerVivo(Especie especie, Boolean esMarino, Sector idSector){
 		this.especie=especie;
 		this.esMarino=esMarino;
 		this.idSector=idSector;
 	}
 	
-	public abstract void alimentarse(Alimentos alimento);
+	public abstract void alimentarse(Alimento alimento);
 
 	public Especie getEspecie() {
 		return especie;
@@ -29,11 +29,11 @@ public abstract class SerVivo {
 		this.esMarino = esMarino;
 	}
 
-	public Integer getIdSector() {
+	public Sector getIdSector() {
 		return idSector;
 	}
 
-	public void setIdSector(Integer idSector) {
+	public void setIdSector(Sector idSector) {
 		this.idSector = idSector;
 	}
 

@@ -4,233 +4,373 @@ import static org.junit.Assert.*;
 
 public class Test {
 	
+	//////////////CREACION DE OBJETO ZOOLOGICO//////////////
+	
 	@org.junit.Test
 	public void queSeCreeZoologico() {
+		
+		// Inicializacion de Variables
 		String nombreZoo = "";
+		
+		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		
+		// Validaci贸n del Test
 		assertNotNull(nuevoZoologico);
+		
 	}
-
+	
+	//////////////CREACION DE OBJETOS DE TIPO SER VIVO//////////////
+	
 	@org.junit.Test
 	public void queSeCreeAnimalCarnivoro() {
 
 		// Inicializacion de Variables
-
 		Especie especie = Especie.Elefante;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
-		Integer idSector = 123, idAnimal = 0;
+		Integer idAnimal = 0;
+		Sector idSector = Sector.Sector_1;
 
-		// Se crea animal carnivoro
-		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados,
-				idAnimal, fueAlimentado);
+		// Creacion de Objeto/s
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 
-		// Validaci髇
+		// Validaci贸n del Test
 		assertNotNull(nuevoAnimalCarnivoro);
 	}
-
+	
 	@org.junit.Test
-	public void queSeAgregueAnimalCarnivoroAlZoologico() {
-		String nombreZoo = "";
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-
-		Especie especie = Especie.Leon;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
-		Integer idSector = 123, idAnimal = 0;
-
-		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados,
-				idAnimal, fueAlimentado);
-
-		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
-
-		assertEquals(1,nuevoZoologico.getListaAnimalesCarnivoros().size());
-
-	}
-
-	@org.junit.Test
-	public void queSeCreeAnimalHerviboro() {
+	public void queSeCreeAnimalHerbivoro() {
 
 		// Inicializacion de Variables
-
 		Especie especie = Especie.Elefante;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
-		Integer idSector = 123, idAnimal = 0;
+		Integer idAnimal = 0;
+		Sector idSector = Sector.Sector_1;
 
-		// Se crea animal Herbivoro
-		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados,
-				idAnimal, fueAlimentado);
+		// Creacion de Objeto/s
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 
-		// Validaci髇
+		// Validaci贸n del Test
 		assertNotNull(nuevoAnimalHerbivoro);
 	}
-
-	@org.junit.Test
-	public void queSeAgregueAnimalHerbivoroAlZoologico() {
-		String nombreZoo = "";
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-
-		Especie especie = Especie.Elefante;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
-		Integer idSector = 123, idAnimal = 0;
-
-		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados,
-				idAnimal, fueAlimentado);
-		
-		
-		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHerbivoro);
-
-		assertEquals(1,nuevoZoologico.getListaAnimalesHerbivoros().size());
-
-	}
-
+	
 	@org.junit.Test
 	public void queSeCreeAnimalOmnivoro() {
 
 		// Inicializacion de Variables
-
 		Especie especie = Especie.Oso;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
-		Integer idSector = 123, idAnimal = 0;
+		Integer idAnimal = 0;
+		Sector idSector = Sector.Sector_1;
 
-		// Se crea animal carnivoro
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal,
-				fueAlimentado);
+		// Creacion de Objeto/s
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 
-		// Validaci髇
+		// Validaci贸n del Test
 		assertNotNull(nuevoAnimalOmnivoro);
 	}
-
-	@org.junit.Test
-	public void queSeAgregueAnimalOmnivoroAlZoologico() {
-		String nombreZoo = "";
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-
-		Especie especie = Especie.Oso;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
-		Integer idSector = 123, idAnimal = 0;
-
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal,
-				fueAlimentado);
-
-		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
-
-		assertEquals(1,nuevoZoologico.getListaAnimalesOmnivoros().size());
-
-	}
-
+	
 	@org.junit.Test
 	public void queSeCreeUnaPlanta() {
-
+		
+		// Inicializacion de Variables
 		Especie especie = Especie.Alga;
 		Boolean esMarino = true, fueRegada = false, fuePodada = false;
-		Integer idSector = 123;
+		Sector idSector = Sector.Sector_1;
 		Integer idPlanta = 123;
 
+		// Creacion de Objeto/s
 		Planta nuevaPlanta = new Planta(especie, esMarino, idSector, fueRegada, fuePodada, idPlanta);
-
+		
+		// Validaci贸n del Test
 		assertNotNull(nuevaPlanta);
 	}
-
-	@org.junit.Test
-	public void queSeAgreguePlantaAlZoologico() {
-
-		String nombreZoo = "";
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-
-		Especie especie = Especie.Alga;
-		Boolean esMarino = true, fueRegada = false, fuePodada = false;
-		Integer idSector = 123;
-		Integer idPlanta = 123;
-
-		Planta nuevaPlanta = new Planta(especie, esMarino, idSector, fueRegada, fuePodada,idPlanta);
-
-		nuevoZoologico.agregarPlanta(nuevaPlanta);
-
-		assertEquals(1,nuevoZoologico.getListaPlantas().size());
-	}
+	
+	//////////////CREACION DE OBJETOS DE EMPLEADO//////////////
 	
 	@org.junit.Test
 	public void queSeCreeJardinero() {
 
+		// Inicializacion de Variables
 		String nombreEmpleado = "Pedro";
 		String apellidoEmpleado= "Pascal"; 
 		Integer dniEmpleado= 30215620;
 		Double sueldo= 177284.99;
-		Integer idSector = 8;
+		Sector idSectorEmpleado= Sector.Sector_1;
 
-		Jardinero nuevoJadinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSector);
+		// Creacion de Objeto/s
+		Jardinero nuevoJadinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
 
+		// Validaci贸n del Test
 		assertNotNull(nuevoJadinero);
-	}
-
-	@org.junit.Test
-	public void queSeAgregueJardinero() {
-
-		String nombreZoo = "";
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		
-		String nombreEmpleado = "Pedro";
-		String apellidoEmpleado= "Pascal"; 
-		Integer dniEmpleado= 30215620;
-		Double sueldo= 177284.99;
-		Integer idSector = 8;
-
-		Jardinero nuevoJadinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSector);
-		
-		nuevoZoologico.agregarJadinero(nuevoJadinero);
-		assertEquals(1,nuevoZoologico.getListaJardineros().size());
-		
 	}
 	
 	@org.junit.Test
 	public void queSeCreeVeterinario() {
 
+		// Inicializacion de Variables
 		String nombreEmpleado = "Pedro";
 		String apellidoEmpleado= "Pascal"; 
 		Integer dniEmpleado= 30215620;
 		Double sueldo= 177284.99;
-		Integer idSector = 8;
+		Sector idSectorEmpleado= Sector.Sector_1;
 
-		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSector);
+		// Creacion de Objeto/s
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
 
+		// Validaci贸n del Test
 		assertNotNull(nuevoVeterinario);
 	}
+	
+	//////////////AGREGADO DE OBJETOS DE TIPO SERVIVO Y EMPLEADO AL ZOOLOGICO//////////////
+	
+	@org.junit.Test
+	public void queSeAgregueAnimalCarnivoroAlZoologico() {
+		
+		// Inicializacion de Variables
+		String nombreZoo = "";
+		
+		Especie especie = Especie.Leon;
+		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 14;
+		Sector idSector = Sector.Sector_1;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		
+		// Metodos del Nuevo Test
+		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
+		
+		// Validacion del Test
+		assertEquals(1,nuevoZoologico.getListaAnimalesCarnivoros().size());
+
+	}
+
+	@org.junit.Test
+	public void queSeAgregueAnimalHerbivoroAlZoologico() {
+		
+		// Inicializacion de Variables
+		String nombreZoo = "";
+
+		Especie especie = Especie.Elefante;
+		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 12;
+		Sector idSector = Sector.Sector_1;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		
+		// Metodos del Nuevo Test
+		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHerbivoro);
+
+		// Validacion del Test
+		assertEquals(1,nuevoZoologico.getListaAnimalesHerbivoros().size());
+
+	}
+
+	@org.junit.Test
+	public void queSeAgregueAnimalOmnivoroAlZoologico() {
+		
+		// Inicializacion de Variables
+		String nombreZoo = "";
+
+		Especie especie = Especie.Oso;
+		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 0;
+		Sector idSector = Sector.Sector_1;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+
+		// Metodos del Nuevo Test
+		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
+		
+		// Validacion del Test
+		assertEquals(1,nuevoZoologico.getListaAnimalesOmnivoros().size());
+
+	}
+
+
+	@org.junit.Test
+	public void queSeAgreguePlantaAlZoologico() {
+
+		// Inicializacion de Variables
+		String nombreZoo = "";
+
+		Especie especie = Especie.Alga;
+		Boolean esMarino = true, fueRegada = false, fuePodada = false;
+		Sector idSector = Sector.Sector_1;
+		Integer idPlanta = 123;
+
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Planta nuevaPlanta = new Planta(especie, esMarino, idSector, fueRegada, fuePodada,idPlanta);
+
+		// Metodos del Nuevo Test
+		nuevoZoologico.agregarPlanta(nuevaPlanta);
+		
+		// Validacion del Test
+		assertEquals(1,nuevoZoologico.getListaPlantas().size());
+	}
+	
+
+	@org.junit.Test
+	public void queSeAgregueJardinero() {
+		
+		// Inicializacion de Variables
+		String nombreZoo = "";
+		
+		String nombreEmpleado = "Pedro";
+		String apellidoEmpleado= "Pascal"; 
+		Integer dniEmpleado= 30215620;
+		Double sueldo= 177284.99;
+		Sector idSectorEmpleado= Sector.Sector_1;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Jardinero nuevoJadinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+		
+		// Metodos del Nuevo Test
+		nuevoZoologico.agregarJadinero(nuevoJadinero);
+		
+		// Validacion del Test
+		assertEquals(1,nuevoZoologico.getListaJardineros().size());
+		
+	}
+	
 
 	@org.junit.Test
 	public void queSeAgregueVeterinario() {
 
+		// Inicializacion de Variables
 		String nombreZoo = "";
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
 		
 		String nombreEmpleado = "Pedro";
 		String apellidoEmpleado= "Pascal"; 
 		Integer dniEmpleado= 30215620;
 		Double sueldo= 177284.99;
-		Integer idSector = 8;
+		Sector idSectorEmpleado= Sector.Sector_1;
 
-		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSector);
-
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+		
+		// Metodos del Nuevo Test
 		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		// Validacion del Test
 		assertEquals(1,nuevoZoologico.getListaVeterinarios().size());
 		
 	}
 	
-	@org.junit.Test
-	public void queAnimalHerbivoroComa() {
-		// Inicializacion de Variables
-		String nombreZoo = "";
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
 	
-
+	//////////////TESTS DE ALIMENTACION//////////////
+	
+	@org.junit.Test
+	public void queElVeterinarioLeDeComidaAlAnimalHerbivoroYEsteComa() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "";
+		
 		Especie especie = Especie.Elefante;
 		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
-		Integer idSector = 123, idAnimal = 0;
-
-		// Se crea animal Herbivoro
-		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados,
-				idAnimal, fueAlimentado);
-
+		Integer idAnimal = 0;
+		Sector idSector=Sector.Sector_1;
 		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_1;
+		Double sueldo= 177284.99;		
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHerbivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Metodos del Nuevo Test
+		Alimento alimentoAIngerir=Alimento.Lechuga;
+		
+		Boolean valorEsperado=nuevoVeterinario.alimentarAnimalHerbivoro(nuevoAnimalHerbivoro,alimentoAIngerir);
+		
+		//Validacion del Test
+		assertTrue(valorEsperado);
 	}
+	
+	@org.junit.Test
+	public void queElVeterinarioLeDeCarneAlAnimalHerbivoroYEsteNoComa() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "";
+		
+		Especie especie = Especie.Elefante;
+		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 0;
+		Sector idSector=Sector.Sector_1;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_1;
+		Double sueldo= 177284.99;		
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHerbivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Metodos del Nuevo Test
+		Alimento alimentoAIngerir=Alimento.Carne;
+		
+		Boolean valorEsperado=nuevoVeterinario.alimentarAnimalHerbivoro(nuevoAnimalHerbivoro,alimentoAIngerir);
+		
+		//Validacion del Test
+		assertFalse(valorEsperado);
+	}
+	
+	@org.junit.Test
+	public void queElVeterinarioLeDeComidaAlAnimalCarnivoroYEsteComa() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "";
+		
+		Especie especie = Especie.Tigre;
+		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 86;
+		Sector idSector=Sector.Sector_2;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_2;
+		Double sueldo= 177284.99;		
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Metodos del Nuevo Test
+		Alimento alimentoAIngerir=Alimento.Carne;
+		
+		Boolean valorEsperado=nuevoVeterinario.alimentarAnimalCarnivoro(nuevoAnimalCarnivoro,alimentoAIngerir);
+		
+		//Validacion del Test
+		assertTrue(valorEsperado);
+	}
+	
 	
 	
 }
