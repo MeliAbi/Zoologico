@@ -27,7 +27,6 @@ public class Zoologico {
 	}
 
 	
-	
 	public String getNombreZoo() {
 		return nombreZoo;
 	}
@@ -163,7 +162,18 @@ public class Zoologico {
 		}
 		
 	}
-	
-	
+
+	public AnimalHerbivoro buscarAnimalHerbivoro(Integer idAnimal) {
+		
+		for(AnimalHerbivoro animal : listaAnimalesHerbivoros){
+			
+			if(idAnimal == animal.getIdAnimal()) {
+				return animal;
+			}
+		}
+		return null;
+		
+	}
+
 
 }

@@ -265,6 +265,28 @@ public class Test {
 	
 	//////////////TESTS DE ALIMENTACION//////////////
 	
+	//buscarAnimalTest
+	@org.junit.Test
+	public void buscarAnimalHerbivoro() {
+		// Inicializacion de Variables
+		String nombreZoo = "Temaiken";
+		
+		Especie especie = Especie.Elefante;
+		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 0;
+		Sector idSector=Sector.Sector_1;	
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHerbivoro);
+		
+		//Metodos
+		assertNotNull(nuevoZoologico.buscarAnimalHerbivoro(nuevoAnimalHerbivoro.getIdAnimal()));
+	}
+	
 	@org.junit.Test
 	public void queElVeterinarioLeDeComidaAlAnimalHerbivoroYEsteComa() {
 		// Inicializacion de Variables
@@ -293,7 +315,10 @@ public class Test {
 		//Metodos del Nuevo Test
 		Alimento alimentoAIngerir=Alimento.Lechuga;
 		
-		Boolean valorEsperado=nuevoVeterinario.alimentarAnimalHerbivoro(nuevoAnimalHerbivoro,alimentoAIngerir);
+		Boolean valorEsperado=false;
+		if(nuevoZoologico.buscarAnimalHerbivoro(nuevoAnimalHerbivoro.getIdAnimal())!=null) {
+			valorEsperado=nuevoVeterinario.alimentarAnimalHerbivoro(nuevoAnimalHerbivoro,alimentoAIngerir);
+		};
 		
 		//Validacion del Test
 		assertTrue(valorEsperado);

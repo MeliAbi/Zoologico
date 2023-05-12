@@ -7,7 +7,11 @@ public class Veterinario extends Empleado {
 		super(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo,idSectorEmpleado);
 	}
 
+	
 	public Boolean alimentarAnimalHerbivoro(AnimalHerbivoro nuevoAnimalHerbivoro, Alimento alimentoAIngerir) {
+		
+		//buscarAnimal -- si no encuentra return false
+					// -- si lo encuentra (linea 20 a 26)
 		
 		if (this.getIdSectorEmpleado().equals(nuevoAnimalHerbivoro.getIdSector())){	
 			nuevoAnimalHerbivoro.alimentarse(alimentoAIngerir);
@@ -17,6 +21,20 @@ public class Veterinario extends Empleado {
 		}
 		return false;
 	}
+	
+	/*
+	 * 	public Boolean alimentarAnimalHerbivoro(Zoologico zoo, Integer animalId, Alimento alimentoAIngerir) {
+		
+		if(zoo.buscarAnimal(animalId) && this.getIdSectorEmpleado().equals(nuevoAnimalHerbivoro.getIdSector())){
+			nuevoAnimalHerbivoro.alimentarse(alimentoAIngerir);
+			if(nuevoAnimalHerbivoro.getFueAlimentado()==true) {
+				return true;
+		 }
+		return false;
+	}
+	 * 
+	 * */
+	
 
 	public Boolean alimentarAnimalCarnivoro(AnimalCarnivoro nuevoAnimalCarnivoro, Alimento alimentoAIngerir) {
 		if (this.getIdSectorEmpleado().equals(nuevoAnimalCarnivoro.getIdSector())){	
