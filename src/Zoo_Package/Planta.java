@@ -5,8 +5,8 @@ public class Planta extends SerVivo{
 	private Boolean fueRegada=false, fuePodada=false;
 	private Integer idPlanta;
 	
-	public Planta (Especie especie, Boolean esMarino, Sector idSector, Boolean fueRegada, Boolean fuePodada, Integer idPlanta) {
-		super(especie, esMarino, idSector);
+	public Planta (Especie especie, Sector idSector, Boolean fueRegada, Boolean fuePodada, Integer idPlanta) {
+		super(especie, idSector);
 		this.fueRegada=fueRegada;
 		this.fuePodada=fuePodada;
 		this.idPlanta=idPlanta;

@@ -27,12 +27,12 @@ public class Test {
 
 		// Inicializacion de Variables
 		Especie especie = Especie.Elefante;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 0;
 		Sector idSector = Sector.Sector_1;
 
 		// Creacion de Objeto/s
-		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 
 		// Validación del Test
 		assertNotNull(nuevoAnimalCarnivoro);
@@ -43,12 +43,12 @@ public class Test {
 
 		// Inicializacion de Variables
 		Especie especie = Especie.Elefante;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 0;
 		Sector idSector = Sector.Sector_1;
 
 		// Creacion de Objeto/s
-		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 
 		// Validación del Test
 		assertNotNull(nuevoAnimalHerbivoro);
@@ -59,12 +59,12 @@ public class Test {
 
 		// Inicializacion de Variables
 		Especie especie = Especie.Oso;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 0;
 		Sector idSector = Sector.Sector_1;
 
 		// Creacion de Objeto/s
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 
 		// Validación del Test
 		assertNotNull(nuevoAnimalOmnivoro);
@@ -75,12 +75,12 @@ public class Test {
 		
 		// Inicializacion de Variables
 		Especie especie = Especie.Alga;
-		Boolean esMarino = true, fueRegada = false, fuePodada = false;
+		Boolean fueRegada = false, fuePodada = false;
 		Sector idSector = Sector.Sector_1;
 		Integer idPlanta = 123;
 
 		// Creacion de Objeto/s
-		Planta nuevaPlanta = new Planta(especie, esMarino, idSector, fueRegada, fuePodada, idPlanta);
+		Planta nuevaPlanta = new Planta(especie, idSector, fueRegada, fuePodada, idPlanta);
 		
 		// Validación del Test
 		assertNotNull(nuevaPlanta);
@@ -131,13 +131,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Leon;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 14;
 		Sector idSector = Sector.Sector_1;
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 		
 		// Metodos del Nuevo Test
 		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
@@ -154,13 +154,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 
 		Especie especie = Especie.Elefante;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 12;
 		Sector idSector = Sector.Sector_1;
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 		
 		// Metodos del Nuevo Test
 		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHerbivoro);
@@ -177,13 +177,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 
 		Especie especie = Especie.Oso;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 0;
 		Sector idSector = Sector.Sector_1;
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 
 		// Metodos del Nuevo Test
 		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
@@ -200,13 +200,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 
 		Especie especie = Especie.Alga;
-		Boolean esMarino = true, fueRegada = false, fuePodada = false;
+		Boolean fueRegada = false, fuePodada = false;
 		Sector idSector = Sector.Sector_1;
 		Integer idPlanta = 123;
 
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		Planta nuevaPlanta = new Planta(especie, esMarino, idSector, fueRegada, fuePodada,idPlanta);
+		Planta nuevaPlanta = new Planta(especie, idSector, fueRegada, fuePodada,idPlanta);
 
 		// Metodos del Nuevo Test
 		nuevoZoologico.agregarPlanta(nuevaPlanta);
@@ -272,13 +272,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Elefante;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 0;
 		Sector idSector=Sector.Sector_1;
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 		
 		//Agrego los Objetos al Zoologico
 		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHerbivoro);
@@ -294,13 +294,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Tigre;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 13;
 		Sector idSector=Sector.Sector_1;
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 		
 		//Agrego los Objetos al Zoologico
 		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
@@ -316,13 +316,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Oso;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 3;
 		Sector idSector=Sector.Sector_2;
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 		
 		//Agrego los Objetos al Zoologico
 		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);;
@@ -338,13 +338,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Helecho;
-		Boolean esMarino = false, fueRegada = false, fuePodada = false;
+		Boolean fueRegada = false, fuePodada = false;
 		Sector idSector = Sector.Sector_4;
 		Integer idPlanta = 122;
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		Planta nuevaPlanta = new Planta(especie, esMarino, idSector, fueRegada, fuePodada, idPlanta);
+		Planta nuevaPlanta = new Planta(especie, idSector, fueRegada, fuePodada, idPlanta);
 		
 		//Agrego los Objetos al Zoologico
 		nuevoZoologico.agregarPlanta(nuevaPlanta);;
@@ -361,7 +361,7 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Elefante;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 0;
 		Sector idSector=Sector.Sector_4;
 		
@@ -372,7 +372,7 @@ public class Test {
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
 
 		//Agrego los Objetos al Zoologico
@@ -399,7 +399,7 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Elefante;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 0;
 		Sector idSector=Sector.Sector_1;
 		
@@ -410,7 +410,7 @@ public class Test {
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalHerbivoro nuevoAnimalHerbivoro = new AnimalHerbivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
 
 		//Agrego los Objetos al Zoologico
@@ -434,7 +434,7 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Tigre;
-		Boolean esMarino = false, estaEnCuidados = false, fueAlimentado = false;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
 		Integer idAnimal = 86;
 		Sector idSector=Sector.Sector_2;
 		
@@ -445,7 +445,7 @@ public class Test {
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, esMarino, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
 		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
 
 		//Agrego los Objetos al Zoologico

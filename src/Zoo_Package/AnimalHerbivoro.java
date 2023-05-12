@@ -2,8 +2,8 @@ package Zoo_Package;
 
 public class AnimalHerbivoro extends Animal {
 
-	public AnimalHerbivoro(Especie especie, Boolean esMarino, Sector idSector, Boolean estaEnCuidados, Integer idAnimal, Boolean fueAlimentado) {
-		super(especie,esMarino,idSector,estaEnCuidados,idAnimal,fueAlimentado);
+	public AnimalHerbivoro(Especie especie, Sector idSector, Boolean estaEnCuidados, Integer idAnimal, Boolean fueAlimentado) {
+		super(especie,idSector,estaEnCuidados,idAnimal,fueAlimentado);
 	}
 
 	@Override
