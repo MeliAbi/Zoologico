@@ -163,7 +163,27 @@ public class Zoologico {
 		}
 		
 	}
+
+	public AnimalHerbivoro buscarAnimalHerbivoro(Integer idAnimal) {
+		
+		for(AnimalHerbivoro animalBuscado:listaAnimalesHerbivoros) {
+			if(animalBuscado.getIdAnimal()==idAnimal) {
+				return animalBuscado;
+			}
+		}
+		return null;
+	}
 	
+	public AnimalCarnivoro buscarAnimalCarnivoro(Integer idAnimal) {
+		
+		for(AnimalCarnivoro animalBuscado:listaAnimalesCarnivoros) {
+			if(animalBuscado.getIdAnimal()==idAnimal) {
+				return animalBuscado;
+			}
+		}
+		
+		return null;
+	}
 	
 
 }
