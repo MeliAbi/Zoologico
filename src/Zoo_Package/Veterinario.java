@@ -32,4 +32,17 @@ public class Veterinario extends Empleado {
 		}
 		return false;
 	}
+
+
+	public Boolean alimentarAnimalOmnivoro(Zoologico zoo, AnimalOmnivoro nuevoAnimalOmnivoro,
+			Alimento alimentoAIngerir) {
+		if(zoo.buscarAnimalOmnivoro(nuevoAnimalOmnivoro.getIdAnimal())!=null && this.getIdSectorEmpleado().equals(nuevoAnimalOmnivoro.getIdSector())){
+			
+			nuevoAnimalOmnivoro.alimentarse(alimentoAIngerir);
+			if(nuevoAnimalOmnivoro.getFueAlimentado()==true) {
+				return true; 
+			} 
+		}
+		return false;
+	}
 }

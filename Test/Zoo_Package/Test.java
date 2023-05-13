@@ -74,7 +74,7 @@ public class Test {
 	public void queSeCreeUnaPlanta() {
 		
 		// Inicializacion de Variables
-		Especie especie = Especie.Alga;
+		Especie especie = Especie.Petunia;
 		Boolean fueRegada = false, fuePodada = false;
 		Sector idSector = Sector.Sector_1;
 		Integer idPlanta = 123;
@@ -199,7 +199,7 @@ public class Test {
 		// Inicializacion de Variables
 		String nombreZoo = "TEMAIKEN";
 
-		Especie especie = Especie.Alga;
+		Especie especie = Especie.Helecho;
 		Boolean fueRegada = false, fuePodada = false;
 		Sector idSector = Sector.Sector_1;
 		Integer idPlanta = 123;
@@ -462,6 +462,42 @@ public class Test {
 		assertEquals(true,nuevoAnimalCarnivoro.getFueAlimentado());
 	}
 	
-	
+	@org.junit.Test
+	public void queElVeterinarioLeDeComidaAlAnimalOmnivoroYEsteComa() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+		
+		Especie especie = Especie.Oso;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 56;
+		Sector idSector=Sector.Sector_2;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_2;
+		Double sueldo= 177284.99;		
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Metodos del Nuevo Test
+		Alimento alimentoAIngerir1=Alimento.Carne;
+		Alimento alimentoAIngerir2=Alimento.Lechuga;
+		
+		Boolean valorEsperado1=nuevoVeterinario.alimentarAnimalOmnivoro(nuevoZoologico,nuevoAnimalOmnivoro,alimentoAIngerir1);
+		Boolean valorEsperado2=nuevoVeterinario.alimentarAnimalOmnivoro(nuevoZoologico,nuevoAnimalOmnivoro,alimentoAIngerir2);
+		
+		//Validacion del Test
+		assertTrue(valorEsperado1);
+		assertTrue(valorEsperado2);
+		assertEquals(true,nuevoAnimalOmnivoro.getFueAlimentado());
+	}
 	
 }

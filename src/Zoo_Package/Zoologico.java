@@ -116,7 +116,7 @@ public class Zoologico {
 
 
 	public void agregarPlanta(Planta nuevaPlanta) {
-		if (listaPlantas.size()<CAPACIDAD_MAX_POR_TIPO_ALIMENTACION&&(nuevaPlanta.getEspecie()==Especie.Alga||nuevaPlanta.getEspecie()==Especie.Petunia||nuevaPlanta.getEspecie()==Especie.Helecho)){
+		if (listaPlantas.size()<CAPACIDAD_MAX_POR_TIPO_ALIMENTACION&&(nuevaPlanta.getEspecie()==Especie.Petunia||nuevaPlanta.getEspecie()==Especie.Helecho)){
 			listaPlantas.add(nuevaPlanta);
 		}
 	}
