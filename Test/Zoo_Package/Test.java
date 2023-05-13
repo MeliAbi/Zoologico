@@ -414,7 +414,7 @@ public class Test {
 		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
 		
 		//Metodos del Nuevo Test
-		Alimento alimentoAIngerir=Alimento.Lechuga;
+		Alimento alimentoAIngerir=Alimento.Zanahoria;
 		
 
 		Boolean valorEsperado=nuevoVeterinario.alimentarAnimalHerbivoro(nuevoZoologico,nuevoAnimalHerbivoro,alimentoAIngerir);
