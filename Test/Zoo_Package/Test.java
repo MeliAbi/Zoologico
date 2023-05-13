@@ -264,8 +264,8 @@ public class Test {
 	}
 	
 	@org.junit.Test
-	public void queSeNoSePuedaAgregarSerVivoDelMismoTipoDeAlimentacionConLaMismaIDAnimalOPlanta() { //Probamos con Carnivoros por ejemplo. Para todos va a ser lo mismo, incluso para los Empleados.
-
+	public void queSeNoSePuedaAgregarSerVivoDelMismoTipoDeAlimentacionConLaMismaIDAnimalOPlanta() { 
+		// Probamos con Carnivoros por ejemplo. Para todos va a ser lo mismo, incluso para los Empleados.
 		// Inicializacion de Variables
 		String nombreZoo = "TEMAIKEN";
 				
@@ -295,7 +295,6 @@ public class Test {
 		
 		
 	}
-	
 	
 	//////////////BUSCAR TIPO DE SER VIVO DENTRO DE ZOOLOGICO//////////////
 	
@@ -534,6 +533,240 @@ public class Test {
 		assertEquals(true,nuevoAnimalOmnivoro.getFueAlimentado());
 	}
 
+	//////////////TESTS DE INGRESO A CUIDADOS Y ALTAS CON AUMENTO SALARIAL//////////////
+	
+	@org.junit.Test
+	public void queSeIngresenAnimalesACuidados() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie1 = Especie.Leon;
+		Boolean estaEnCuidados1 = false, fueAlimentado1 = false;
+		Integer idAnimal1 = 59;
+		Sector idSector1=Sector.Sector_2;
+		
+		Especie especie2 = Especie.Ciervo;
+		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
+		Integer idAnimal2 = 59;
+		Sector idSector2=Sector.Sector_2;
+		
+		Especie especie3 = Especie.Oso;
+		Boolean estaEnCuidados3 = false, fueAlimentado3 = false;
+		Integer idAnimal3 = 59;
+		Sector idSector3=Sector.Sector_2;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_2;
+		Double sueldo= 177284.99;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie1, idSector1, estaEnCuidados1, idAnimal1, fueAlimentado1);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+		AnimalHerbivoro nuevoAnimalHervivoro = new AnimalHerbivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie3, idSector3, estaEnCuidados3, idAnimal3, fueAlimentado3);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
+		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHervivoro);
+		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Metodos del Nuevo Test
+		nuevoVeterinario.ingresarAnimalACuidados(nuevoZoologico, nuevoAnimalCarnivoro.getIdAnimal(), nuevoVeterinario.getIdSectorEmpleado());
+		nuevoVeterinario.ingresarAnimalACuidados(nuevoZoologico, nuevoAnimalHervivoro.getIdAnimal(), nuevoVeterinario.getIdSectorEmpleado());
+		nuevoVeterinario.ingresarAnimalACuidados(nuevoZoologico, nuevoAnimalOmnivoro.getIdAnimal(), nuevoVeterinario.getIdSectorEmpleado());
+		
+		//Validacion del Test
+		assertTrue(nuevoAnimalCarnivoro.getEstaEnCuidados());
+		assertTrue(nuevoAnimalHervivoro.getEstaEnCuidados());
+		assertTrue(nuevoAnimalOmnivoro.getEstaEnCuidados());
+	}
+
+	@org.junit.Test
+	public void queNoSeIngresenAnimalesACuidadosPorDiferenteSector() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie2 = Especie.Ciervo;
+		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
+		Integer idAnimal2 = 59;
+		Sector idSector2=Sector.Sector_2;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_1;
+		Double sueldo= 177284.99;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+		AnimalHerbivoro nuevoAnimalHervivoro = new AnimalHerbivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
+	
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHervivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Metodos del Nuevo Test
+		nuevoVeterinario.ingresarAnimalACuidados(nuevoZoologico, nuevoAnimalHervivoro.getIdAnimal(), nuevoVeterinario.getIdSectorEmpleado());
+		
+		//Validacion del Test
+		assertFalse(nuevoAnimalHervivoro.getEstaEnCuidados());
+	}
+	
+	@org.junit.Test
+	public void queNoSeIngresenAnimalesACuidadosPorDiferenteId() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie2 = Especie.Ciervo;
+		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
+		Integer idAnimal2 = 59;
+		Sector idSector2=Sector.Sector_2;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_1;
+		Double sueldo= 177284.99;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+		AnimalHerbivoro nuevoAnimalHervivoro = new AnimalHerbivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
+	
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalHerbivoro(nuevoAnimalHervivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Metodos del Nuevo Test
+		Integer idAnimalNoExistente = 123;
+		nuevoVeterinario.ingresarAnimalACuidados(nuevoZoologico, idAnimalNoExistente, nuevoVeterinario.getIdSectorEmpleado());
+		
+		//Validacion del Test
+		assertFalse(nuevoAnimalHervivoro.getEstaEnCuidados());
+	}
+	
+	@org.junit.Test
+	public void queSeDeDeAltaUnAnimal() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie1 = Especie.Leon;
+		Boolean estaEnCuidados1 = false, fueAlimentado1 = false;
+		Integer idAnimal1 = 59;
+		Sector idSector1=Sector.Sector_2;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_2;
+		Double sueldo= 100000.0;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie1, idSector1, estaEnCuidados1, idAnimal1, fueAlimentado1);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Ingresar el Animal A Cuidados
+		nuevoVeterinario.ingresarAnimalACuidados(nuevoZoologico, nuevoAnimalCarnivoro.getIdAnimal(), nuevoVeterinario.getIdSectorEmpleado());
+
+		//Metodos del Nuevo Test
+		nuevoVeterinario.darDeAltaAnimal(nuevoZoologico, nuevoAnimalCarnivoro.getIdAnimal(), nuevoVeterinario);
+		
+		//Validacion del Test
+		Double valorEsperado = 110000.0;
+		assertFalse(nuevoAnimalCarnivoro.getEstaEnCuidados());
+		assertEquals(valorEsperado,nuevoVeterinario.getSueldo());
+		
+	}
+	
+	@org.junit.Test
+	public void queNoSeDeDeAltaUnAnimalPorDiferenteSector() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie1 = Especie.Leon;
+		Boolean estaEnCuidados1 = false, fueAlimentado1 = false;
+		Integer idAnimal1 = 59;
+		Sector idSector1=Sector.Sector_2;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_2;
+		Double sueldo= 100000.0;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie1, idSector1, estaEnCuidados1, idAnimal1, fueAlimentado1);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Ingresar el Animal A Cuidados
+		nuevoVeterinario.ingresarAnimalACuidados(nuevoZoologico, nuevoAnimalCarnivoro.getIdAnimal(), nuevoVeterinario.getIdSectorEmpleado());
+
+		//Metodos del Nuevo Test
+		Sector sectorIncorrecto = Sector.Sector_1;
+		nuevoVeterinario.setIdSectorEmpleado(sectorIncorrecto);
+		nuevoVeterinario.darDeAltaAnimal(nuevoZoologico, nuevoAnimalCarnivoro.getIdAnimal(), nuevoVeterinario);
+		
+		//Validacion del Test
+		Double valorEsperado = 110000.0;
+		assertTrue(nuevoAnimalCarnivoro.getEstaEnCuidados());
+		assertNotEquals(valorEsperado,nuevoVeterinario.getSueldo());
+		
+	}
+	
+	@org.junit.Test
+	public void queNoSeDeDeAltaUnAnimalPorDiferenteId() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie1 = Especie.Leon;
+		Boolean estaEnCuidados1 = false, fueAlimentado1 = false;
+		Integer idAnimal1 = 59;
+		Sector idSector1=Sector.Sector_2;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_2;
+		Double sueldo= 100000.0;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie1, idSector1, estaEnCuidados1, idAnimal1, fueAlimentado1);
+		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
+		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		
+		//Ingresar el Animal A Cuidados
+		nuevoVeterinario.ingresarAnimalACuidados(nuevoZoologico, nuevoAnimalCarnivoro.getIdAnimal(), nuevoVeterinario.getIdSectorEmpleado());
+
+		//Metodos del Nuevo Test
+		Integer idIncorrecto = 1213;
+		nuevoVeterinario.darDeAltaAnimal(nuevoZoologico, idIncorrecto, nuevoVeterinario);
+		
+		//Validacion del Test
+		Double valorEsperado = 110000.0;
+		assertTrue(nuevoAnimalCarnivoro.getEstaEnCuidados());
+		assertNotEquals(valorEsperado,nuevoVeterinario.getSueldo());
+		
+	}
+	
 	//////////////TESTS DE LIBERACION ANIMAL//////////////
 	
 	@org.junit.Test
@@ -639,9 +872,5 @@ public class Test {
 		assertEquals(0,nuevoZoologico.getListaAnimalesOmnivoros().size());
 		assertEquals(0,nuevoZoologico.getListaAnimalesCarnivoros().size());
 	}
-	
-	//////////////TESTS DE PREMIO SALARIAL?//////////////
-	
-	
-	
+
 }
