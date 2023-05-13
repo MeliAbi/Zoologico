@@ -75,12 +75,12 @@ public class Test {
 		
 		// Inicializacion de Variables
 		Especie especie = Especie.Petunia;
-		Boolean fueRegada = false, fuePodada = false;
+		Boolean fuePodada = false;
 		Sector idSector = Sector.Sector_1;
 		Integer idPlanta = 123;
 
 		// Creacion de Objeto/s
-		Planta nuevaPlanta = new Planta(especie, idSector, fueRegada, fuePodada, idPlanta);
+		Planta nuevaPlanta = new Planta(especie, idSector, fuePodada, idPlanta);
 		
 		// Validación del Test
 		assertNotNull(nuevaPlanta);
@@ -200,13 +200,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 
 		Especie especie = Especie.Helecho;
-		Boolean fueRegada = false, fuePodada = false;
+		Boolean fuePodada = false;
 		Sector idSector = Sector.Sector_1;
 		Integer idPlanta = 123;
 
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		Planta nuevaPlanta = new Planta(especie, idSector, fueRegada, fuePodada,idPlanta);
+		Planta nuevaPlanta = new Planta(especie, idSector, fuePodada,idPlanta);
 
 		// Metodos del Nuevo Test
 		nuevoZoologico.agregarPlanta(nuevaPlanta);
@@ -232,7 +232,7 @@ public class Test {
 		Jardinero nuevoJadinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
 		
 		// Metodos del Nuevo Test
-		nuevoZoologico.agregarJadinero(nuevoJadinero);
+		nuevoZoologico.agregarJardinero(nuevoJadinero);
 		
 		// Validacion del Test
 		assertEquals(1,nuevoZoologico.getListaJardineros().size());
@@ -371,13 +371,13 @@ public class Test {
 		String nombreZoo = "TEMAIKEN";
 		
 		Especie especie = Especie.Helecho;
-		Boolean fueRegada = false, fuePodada = false;
+		Boolean fuePodada = false;
 		Sector idSector = Sector.Sector_4;
 		Integer idPlanta = 122;
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		Planta nuevaPlanta = new Planta(especie, idSector, fueRegada, fuePodada, idPlanta);
+		Planta nuevaPlanta = new Planta(especie, idSector, fuePodada, idPlanta);
 		
 		//Agrego los Objetos al Zoologico
 		nuevoZoologico.agregarPlanta(nuevaPlanta);;
@@ -496,43 +496,130 @@ public class Test {
 	}
 	
 	@org.junit.Test
-	public void queElVeterinarioLeDeComidaAlAnimalOmnivoroYEsteComa() {
+	public void queElJardineroRiegueALaPlanta() {
 		// Inicializacion de Variables
 		
 		String nombreZoo = "TEMAIKEN";
 		
-		Especie especie = Especie.Oso;
-		Boolean estaEnCuidados = false, fueAlimentado = false;
-		Integer idAnimal = 56;
-		Sector idSector=Sector.Sector_2;
+		Especie especie = Especie.Helecho;
+		Boolean fuePodada = false;
+		Sector idSector = Sector.Sector_4;
+		Integer idPlanta = 122;
 		
 		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
 		Integer dniEmpleado= 30215620;
-		Sector idSectorEmpleado= Sector.Sector_2;
+		Sector idSectorEmpleado= Sector.Sector_4;
 		Double sueldo= 177284.99;		
 		
 		// Creacion de Objeto/s
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
-		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+		Planta nuevaPlanta = new Planta(especie, idSector, fuePodada, idPlanta);
+		Jardinero nuevoJardinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
 
 		//Agrego los Objetos al Zoologico
-		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
-		nuevoZoologico.agregarVeterinario(nuevoVeterinario);
+		nuevoZoologico.agregarPlanta(nuevaPlanta);
+		nuevoZoologico.agregarJardinero(nuevoJardinero);
 		
 		//Metodos del Nuevo Test
-		Alimento alimentoAIngerir1=Alimento.Carne;
-		Alimento alimentoAIngerir2=Alimento.Lechuga;
-		
-		Boolean valorEsperado1=nuevoVeterinario.alimentarAnimalOmnivoro(nuevoZoologico,nuevoAnimalOmnivoro,alimentoAIngerir1);
-		Boolean valorEsperado2=nuevoVeterinario.alimentarAnimalOmnivoro(nuevoZoologico,nuevoAnimalOmnivoro,alimentoAIngerir2);
+		Alimento alimentoAIngerir=Alimento.Agua;
+		Boolean valorEsperado=nuevoJardinero.regarPlanta(nuevoZoologico,nuevaPlanta,alimentoAIngerir);
+		Integer nivelDeHumedadEsperadoDespuesDeRegado=10;
 		
 		//Validacion del Test
-		assertTrue(valorEsperado1);
-		assertTrue(valorEsperado2);
-		assertEquals(true,nuevoAnimalOmnivoro.getFueAlimentado());
+		assertEquals(nivelDeHumedadEsperadoDespuesDeRegado, nuevaPlanta.getNivelDeHumedad());
+		assertTrue(valorEsperado);
+	
+	}
+	@org.junit.Test
+	public void queElJardineroExpongaAlSolALaPlanta() {
+		// Inicializacion de Variables
+		String nombreZoo = "TEMAIKEN";
+		
+		Especie especie = Especie.Helecho;
+		Boolean fuePodada = false;
+		Sector idSector = Sector.Sector_4;
+		Integer idPlanta = 122;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_4;
+		Double sueldo= 17284.99;		
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Planta nuevaPlanta = new Planta(especie, idSector, fuePodada, idPlanta);
+		Jardinero nuevoJardinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarPlanta(nuevaPlanta);
+		nuevoZoologico.agregarJardinero(nuevoJardinero);
+		
+		//Metodos y Validación del Nuevo Test
+		
+		Integer nivelDeHumedadEsperadoDespuesDeSerExpuestaUnaVez=3;
+		Integer nivelDeHumedadEsperadoDespuesDeSerExpuestaPorSegundaVez=1;
+		Integer nivelDeHumedadEsperadoDespuesDeSerExpuestaPorTerceraVez=0;
+		
+		nuevoJardinero.exponerPlantaAlSol(nuevoZoologico,nuevaPlanta);
+		assertEquals(nivelDeHumedadEsperadoDespuesDeSerExpuestaUnaVez, nuevaPlanta.getNivelDeHumedad());
+		
+		nuevoJardinero.exponerPlantaAlSol(nuevoZoologico,nuevaPlanta);
+		assertEquals(nivelDeHumedadEsperadoDespuesDeSerExpuestaPorSegundaVez, nuevaPlanta.getNivelDeHumedad());
+		
+		nuevoJardinero.exponerPlantaAlSol(nuevoZoologico,nuevaPlanta);
+		assertEquals(nivelDeHumedadEsperadoDespuesDeSerExpuestaPorTerceraVez, nuevaPlanta.getNivelDeHumedad());
+		
+		Boolean valorEsperado=nuevoJardinero.exponerPlantaAlSol(nuevoZoologico,nuevaPlanta);
+		assertFalse(valorEsperado);
+	
 	}
 
+	@org.junit.Test
+	public void queElJardineroRiegueLaPlantaYLuegoLaExponga2VecesAlSol() {
+		// Inicializacion de Variables
+		String nombreZoo = "TEMAIKEN";
+		
+		Especie especie = Especie.Helecho;
+		Boolean fuePodada = false;
+		Sector idSector = Sector.Sector_4;
+		Integer idPlanta = 122;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_4;
+		Double sueldo= 17284.99;		
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Planta nuevaPlanta = new Planta(especie, idSector, fuePodada, idPlanta);
+		Jardinero nuevoJardinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarPlanta(nuevaPlanta);
+		nuevoZoologico.agregarJardinero(nuevoJardinero);
+		
+		//Metodos y Validación del Nuevo Test
+		Alimento alimentoAIngerir=Alimento.Agua;
+	
+		nuevoJardinero.regarPlanta(nuevoZoologico,nuevaPlanta,alimentoAIngerir);
+		Integer nivelDeHumedadEsperadoDespuesDeRegado=10;
+		assertEquals(nivelDeHumedadEsperadoDespuesDeRegado,nuevaPlanta.getNivelDeHumedad());
+		
+		nuevoJardinero.exponerPlantaAlSol(nuevoZoologico,nuevaPlanta);
+		Integer nivelDeHumedadEsperadoDespuesDeSerExpuestaUnaVez=8;
+		assertEquals(nivelDeHumedadEsperadoDespuesDeSerExpuestaUnaVez, nuevaPlanta.getNivelDeHumedad());
+		
+		nuevoJardinero.exponerPlantaAlSol(nuevoZoologico,nuevaPlanta);
+		Integer nivelDeHumedadEsperadoDespuesDeSerExpuestaPorSegundaVez=6;
+		assertEquals(nivelDeHumedadEsperadoDespuesDeSerExpuestaPorSegundaVez, nuevaPlanta.getNivelDeHumedad());
+		
+		nuevoJardinero.regarPlanta(nuevoZoologico,nuevaPlanta,alimentoAIngerir);
+		Integer nivelDeHumedadEsperadoSiSeIntengaRegarConMayorHumedadA5=6;
+		assertEquals(nivelDeHumedadEsperadoSiSeIntengaRegarConMayorHumedadA5,nuevaPlanta.getNivelDeHumedad());
+
+	}
+		
+	
 	//////////////TESTS DE INGRESO A CUIDADOS Y ALTAS CON AUMENTO SALARIAL//////////////
 	
 	@org.junit.Test
@@ -767,7 +854,7 @@ public class Test {
 		
 	}
 	
-	//////////////TESTS DE LIBERACION ANIMAL//////////////
+	//////////////TESTS DE LIBERAR ANIMAL A LA NATURALEZA//////////////
 	
 	@org.junit.Test
 	public void queSeAgreguenDosAnimalesConLaMismaAlimentacionYSeLibereAUnoDeEllos () {

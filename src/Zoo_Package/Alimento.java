@@ -1,5 +1,5 @@
 package Zoo_Package;
 
 public enum Alimento {
- Carne, Leche, Agua, Lechuga, Zanahoria, Pollo, Sol;
+ Carne, Leche, Agua, Lechuga, Zanahoria, Pollo;
 }

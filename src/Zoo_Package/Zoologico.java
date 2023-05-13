@@ -123,7 +123,7 @@ public class Zoologico {
 
 
 
-	public void agregarJadinero(Jardinero nuevoJadinero) {
+	public void agregarJardinero(Jardinero nuevoJadinero) {
 		
 		if(listaJardineros.size()< CAPACIDAD_MAX_POR_EMPLEADO){
 			listaJardineros.add(nuevoJadinero);

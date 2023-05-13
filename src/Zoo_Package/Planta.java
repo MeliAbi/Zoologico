@@ -2,25 +2,27 @@ package Zoo_Package;
 
 public class Planta extends SerVivo{
 	
-	private Boolean fueRegada=false, fuePodada=false;
-	private Integer idPlanta;
+	private Boolean fuePodada=false;
+	private Integer idPlanta, nivelDeHumedad;
 	
-	public Planta (Especie especie, Sector idSector, Boolean fueRegada, Boolean fuePodada, Integer idPlanta) {
+	public Planta (Especie especie, Sector idSector, Boolean fuePodada, Integer idPlanta) {
 		super(especie, idSector);
-		this.fueRegada=fueRegada;
 		this.fuePodada=fuePodada;
 		this.idPlanta=idPlanta;
+		this.nivelDeHumedad=5;
 	}
 	@Override
 	public void alimentarse(Alimento alimento) {
-		// TODO Auto-generated method stub
-		
+			if(alimento.equals(Alimento.Agua)){
+				this.nivelDeHumedad=10;
+			}
 	}
-	public Boolean getFueRegada() {
-		return fueRegada;
+	
+	public Integer getNivelDeHumedad() {
+		return nivelDeHumedad;
 	}
-	public void setFueRegada(Boolean fueRegada) {
-		this.fueRegada = fueRegada;
+	public void setNivelDeHumedad(Integer nivelDeHumedad) {
+		this.nivelDeHumedad = nivelDeHumedad;
 	}
 	public Boolean getFuePodada() {
 		return fuePodada;
