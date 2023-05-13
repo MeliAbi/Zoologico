@@ -264,8 +264,8 @@ public class Test {
 	}
 	
 	@org.junit.Test
-	public void queSeNoSePuedaAgregarSerVivoDelMismoTipoDeAlimentacionConLaMismaIDAnimalOPlanta() { //Probamos con Carnivoros por ejemplo. Para todos va a ser lo mismo, incluso para los Empleados.
-
+	public void queSeNoSePuedaAgregarSerVivoDelMismoTipoDeAlimentacionConLaMismaIDAnimalOPlanta() { 
+		// Probamos con Carnivoros por ejemplo. Para todos va a ser lo mismo, incluso para los Empleados.
 		// Inicializacion de Variables
 		String nombreZoo = "TEMAIKEN";
 				
@@ -534,113 +534,7 @@ public class Test {
 		assertEquals(true,nuevoAnimalOmnivoro.getFueAlimentado());
 	}
 
-	//////////////TESTS DE LIBERACION ANIMAL//////////////
-	
-	@org.junit.Test
-	public void queSeAgreguenDosAnimalesConLaMismaAlimentacionYSeLibereAUnoDeEllos () {
-		// Inicializacion de Variables
-		
-		String nombreZoo = "TEMAIKEN";
-				
-		Especie especie = Especie.Oso;
-		Boolean estaEnCuidados = false, fueAlimentado = false;
-		Integer idAnimal = 56;
-		Sector idSector=Sector.Sector_2;
-		
-		Especie especie2 = Especie.Cerdo;
-		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
-		Integer idAnimal2 = 59;
-		Sector idSector2=Sector.Sector_2;
-		
-		// Creacion de Objeto/s
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
-		AnimalOmnivoro nuevoAnimalOmnivoro2 = new AnimalOmnivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
-		
-		//Agrego los Objetos al Zoologico
-		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
-		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro2);
-		
-		//Metodos del Nuevo Test
-		Boolean valorEsperado=nuevoZoologico.liberarAnimal(nuevoAnimalOmnivoro.getIdAnimal(),nuevoAnimalOmnivoro.getEspecie());
-		
-		//Validacion del Test
-		assertTrue(valorEsperado);
-		assertEquals(1,nuevoZoologico.getListaAnimalesOmnivoros().size());
-		
-	}
-	
-	@org.junit.Test
-	public void queSeAgreguenDosAnimalesDeDistintaAlimentacionYSeLibereUnoDeEllos () {
-		// Inicializacion de Variables
-		
-		String nombreZoo = "TEMAIKEN";
-				
-		Especie especie = Especie.Oso;
-		Boolean estaEnCuidados = false, fueAlimentado = false;
-		Integer idAnimal = 56;
-		Sector idSector=Sector.Sector_2;
-		
-		Especie especie2 = Especie.Leon;
-		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
-		Integer idAnimal2 = 59;
-		Sector idSector2=Sector.Sector_2;
-		
-		// Creacion de Objeto/s
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
-		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
-		
-		//Agrego los Objetos al Zoologico
-		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
-		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
-		
-		//Metodos del Nuevo Test
-		Boolean valorEsperado=nuevoZoologico.liberarAnimal(nuevoAnimalOmnivoro.getIdAnimal(),nuevoAnimalOmnivoro.getEspecie());
-		
-		//Validacion del Test
-		assertTrue(valorEsperado);
-		assertEquals(0,nuevoZoologico.getListaAnimalesOmnivoros().size());
-		assertEquals(1,nuevoZoologico.getListaAnimalesCarnivoros().size());
-	}
-	
-	@org.junit.Test
-	public void queSeAgreguenDosAnimalesDeDistintaAlimentacionYSeLiberenAmbos() {
-		// Inicializacion de Variables
-		
-		String nombreZoo = "TEMAIKEN";
-				
-		Especie especie = Especie.Oso;
-		Boolean estaEnCuidados = false, fueAlimentado = false;
-		Integer idAnimal = 56;
-		Sector idSector=Sector.Sector_2;
-		
-		Especie especie2 = Especie.Leon;
-		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
-		Integer idAnimal2 = 59;
-		Sector idSector2=Sector.Sector_2;
-		
-		// Creacion de Objeto/s
-		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
-		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
-		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
-		
-		//Agrego los Objetos al Zoologico
-		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
-		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
-		
-		//Metodos del Nuevo Test
-		Boolean valorEsperado=nuevoZoologico.liberarAnimal(nuevoAnimalOmnivoro.getIdAnimal(),nuevoAnimalOmnivoro.getEspecie());
-		Boolean valorEsperado2=nuevoZoologico.liberarAnimal(nuevoAnimalCarnivoro.getIdAnimal(),nuevoAnimalCarnivoro.getEspecie());
-		
-		//Validacion del Test
-		assertTrue(valorEsperado);
-		assertTrue(valorEsperado2);
-		assertEquals(0,nuevoZoologico.getListaAnimalesOmnivoros().size());
-		assertEquals(0,nuevoZoologico.getListaAnimalesCarnivoros().size());
-	}
-	
-	//////////////TESTS DE INGRESO A CUIDADOS Y ALTAS CON PREMIO SALARIAL//////////////
+	//////////////TESTS DE INGRESO A CUIDADOS Y ALTAS CON AUMENTO SALARIAL//////////////
 	
 	@org.junit.Test
 	public void queSeIngresenAnimalesACuidados() {
@@ -672,7 +566,6 @@ public class Test {
 		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
 		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie1, idSector1, estaEnCuidados1, idAnimal1, fueAlimentado1);
 		Veterinario nuevoVeterinario = new Veterinario(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
-
 		AnimalHerbivoro nuevoAnimalHervivoro = new AnimalHerbivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
 		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie3, idSector3, estaEnCuidados3, idAnimal3, fueAlimentado3);
 
@@ -875,5 +768,110 @@ public class Test {
 		
 	}
 	
+	//////////////TESTS DE LIBERACION ANIMAL//////////////
 	
+	@org.junit.Test
+	public void queSeAgreguenDosAnimalesConLaMismaAlimentacionYSeLibereAUnoDeEllos () {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie = Especie.Oso;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 56;
+		Sector idSector=Sector.Sector_2;
+		
+		Especie especie2 = Especie.Cerdo;
+		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
+		Integer idAnimal2 = 59;
+		Sector idSector2=Sector.Sector_2;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalOmnivoro nuevoAnimalOmnivoro2 = new AnimalOmnivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
+		
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
+		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro2);
+		
+		//Metodos del Nuevo Test
+		Boolean valorEsperado=nuevoZoologico.liberarAnimal(nuevoAnimalOmnivoro.getIdAnimal(),nuevoAnimalOmnivoro.getEspecie());
+		
+		//Validacion del Test
+		assertTrue(valorEsperado);
+		assertEquals(1,nuevoZoologico.getListaAnimalesOmnivoros().size());
+		
+	}
+	
+	@org.junit.Test
+	public void queSeAgreguenDosAnimalesDeDistintaAlimentacionYSeLibereUnoDeEllos () {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie = Especie.Oso;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 56;
+		Sector idSector=Sector.Sector_2;
+		
+		Especie especie2 = Especie.Leon;
+		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
+		Integer idAnimal2 = 59;
+		Sector idSector2=Sector.Sector_2;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
+		
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
+		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
+		
+		//Metodos del Nuevo Test
+		Boolean valorEsperado=nuevoZoologico.liberarAnimal(nuevoAnimalOmnivoro.getIdAnimal(),nuevoAnimalOmnivoro.getEspecie());
+		
+		//Validacion del Test
+		assertTrue(valorEsperado);
+		assertEquals(0,nuevoZoologico.getListaAnimalesOmnivoros().size());
+		assertEquals(1,nuevoZoologico.getListaAnimalesCarnivoros().size());
+	}
+	
+	@org.junit.Test
+	public void queSeAgreguenDosAnimalesDeDistintaAlimentacionYSeLiberenAmbos() {
+		// Inicializacion de Variables
+		
+		String nombreZoo = "TEMAIKEN";
+				
+		Especie especie = Especie.Oso;
+		Boolean estaEnCuidados = false, fueAlimentado = false;
+		Integer idAnimal = 56;
+		Sector idSector=Sector.Sector_2;
+		
+		Especie especie2 = Especie.Leon;
+		Boolean estaEnCuidados2 = false, fueAlimentado2 = false;
+		Integer idAnimal2 = 59;
+		Sector idSector2=Sector.Sector_2;
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		AnimalOmnivoro nuevoAnimalOmnivoro = new AnimalOmnivoro(especie, idSector, estaEnCuidados, idAnimal, fueAlimentado);
+		AnimalCarnivoro nuevoAnimalCarnivoro = new AnimalCarnivoro(especie2, idSector2, estaEnCuidados2, idAnimal2, fueAlimentado2);
+		
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarAnimalOmnivoro(nuevoAnimalOmnivoro);
+		nuevoZoologico.agregarAnimalCarnivoro(nuevoAnimalCarnivoro);
+		
+		//Metodos del Nuevo Test
+		Boolean valorEsperado=nuevoZoologico.liberarAnimal(nuevoAnimalOmnivoro.getIdAnimal(),nuevoAnimalOmnivoro.getEspecie());
+		Boolean valorEsperado2=nuevoZoologico.liberarAnimal(nuevoAnimalCarnivoro.getIdAnimal(),nuevoAnimalCarnivoro.getEspecie());
+		
+		//Validacion del Test
+		assertTrue(valorEsperado);
+		assertTrue(valorEsperado2);
+		assertEquals(0,nuevoZoologico.getListaAnimalesOmnivoros().size());
+		assertEquals(0,nuevoZoologico.getListaAnimalesCarnivoros().size());
+	}
+
 }

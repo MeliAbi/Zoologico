@@ -53,11 +53,11 @@ public class Veterinario extends Empleado {
 		AnimalHerbivoro AnimalBuscado2= nuevoZoologico.buscarAnimalHerbivoro(idAnimal);
 		AnimalOmnivoro AnimalBuscado3= nuevoZoologico.buscarAnimalOmnivoro(idAnimal);
 		
-		if(AnimalBuscado1!=null && AnimalBuscado1.getIdAnimal()==idAnimal && AnimalBuscado1.getIdSector() == sectorVeterinario && AnimalBuscado1.getEstaEnCuidados()==false) {
+		if(AnimalBuscado1!=null  && AnimalBuscado1.getIdSector() == sectorVeterinario && AnimalBuscado1.getEstaEnCuidados()==false) {
 			AnimalBuscado1.setEstaEnCuidados(true);
-		}else if(AnimalBuscado2!=null && AnimalBuscado2.getIdAnimal()==idAnimal && AnimalBuscado2.getIdSector() == sectorVeterinario && AnimalBuscado2.getEstaEnCuidados()==false){
+		}else if(AnimalBuscado2!=null  && AnimalBuscado2.getIdSector() == sectorVeterinario && AnimalBuscado2.getEstaEnCuidados()==false){
 			AnimalBuscado2.setEstaEnCuidados(true);
-		}else if(AnimalBuscado3!=null && AnimalBuscado3.getIdAnimal()==idAnimal && AnimalBuscado3.getIdSector() == sectorVeterinario && AnimalBuscado3.getEstaEnCuidados()==false){
+		}else if(AnimalBuscado3!=null  && AnimalBuscado3.getIdSector() == sectorVeterinario && AnimalBuscado3.getEstaEnCuidados()==false){
 			AnimalBuscado3.setEstaEnCuidados(true);
 		}
 		
@@ -72,15 +72,15 @@ public class Veterinario extends Empleado {
 		AnimalHerbivoro AnimalBuscado2= nuevoZoologico.buscarAnimalHerbivoro(idAnimal);
 		AnimalOmnivoro AnimalBuscado3= nuevoZoologico.buscarAnimalOmnivoro(idAnimal);
 		
-		if(AnimalBuscado1!=null && AnimalBuscado1.getIdAnimal()==idAnimal && AnimalBuscado1.getIdSector() == nuevoVeterinario.getIdSectorEmpleado() && AnimalBuscado1.getEstaEnCuidados()==true) {
+		if(AnimalBuscado1!=null && AnimalBuscado1.getIdSector() == nuevoVeterinario.getIdSectorEmpleado() && AnimalBuscado1.getEstaEnCuidados()==true) {
 			AnimalBuscado1.setEstaEnCuidados(false);
 			nuevoSueldo += nuevoSueldo*0.1;
 			nuevoVeterinario.setSueldo(nuevoSueldo);
-		}else if(AnimalBuscado2!=null && AnimalBuscado2.getIdAnimal()==idAnimal && AnimalBuscado2.getIdSector() == nuevoVeterinario.getIdSectorEmpleado() && AnimalBuscado2.getEstaEnCuidados()==true){
+		}else if(AnimalBuscado2!=null && AnimalBuscado2.getIdSector() == nuevoVeterinario.getIdSectorEmpleado() && AnimalBuscado2.getEstaEnCuidados()==true){
 			AnimalBuscado2.setEstaEnCuidados(false);
 			nuevoSueldo += nuevoSueldo*0.1;
 			nuevoVeterinario.setSueldo(nuevoSueldo);
-		}else if(AnimalBuscado3!=null && AnimalBuscado3.getIdAnimal()==idAnimal && AnimalBuscado3.getIdSector() == nuevoVeterinario.getIdSectorEmpleado() && AnimalBuscado3.getEstaEnCuidados()==true){
+		}else if(AnimalBuscado3!=null && AnimalBuscado3.getIdSector() == nuevoVeterinario.getIdSectorEmpleado() && AnimalBuscado3.getEstaEnCuidados()==true){
 			AnimalBuscado3.setEstaEnCuidados(false);
 			nuevoSueldo += nuevoSueldo*0.1;
 			nuevoVeterinario.setSueldo(nuevoSueldo);
