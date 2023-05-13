@@ -55,6 +55,31 @@ public class Empleado {
 	public void setIdSectorEmpleado(Sector idSectorEmpleado) {
 		this.idSectorEmpleado = idSectorEmpleado;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dniEmpleado == null) ? 0 : dniEmpleado.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado other = (Empleado) obj;
+		if (dniEmpleado == null) {
+			if (other.dniEmpleado != null)
+				return false;
+		} else if (!dniEmpleado.equals(other.dniEmpleado))
+			return false;
+		return true;
+	}
 	
 	
 

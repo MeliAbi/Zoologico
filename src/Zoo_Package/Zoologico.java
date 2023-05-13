@@ -201,4 +201,37 @@ public class Zoologico {
 		}
 		return null;
 	}
+
+
+	public Boolean liberarAnimal(Integer idAnimal, Especie especie) {
+		
+		if(especie.equals(Especie.Ciervo)||especie.equals(Especie.Elefante)||especie.equals(Especie.Jirafa)) {
+			for(AnimalHerbivoro animalHerbivoroALiberar:listaAnimalesHerbivoros) {
+				if(animalHerbivoroALiberar.getIdAnimal()==idAnimal) {
+					this.listaAnimalesHerbivoros.remove(animalHerbivoroALiberar);
+					return true;
+				}
+			}
+		}
+		
+		if(especie.equals(Especie.Leon)||especie.equals(Especie.Tigre)||especie.equals(Especie.Hiena)) {
+			for(AnimalCarnivoro animalCarnivoroALiberar:listaAnimalesCarnivoros) {
+				if(animalCarnivoroALiberar.getIdAnimal()==idAnimal) {
+					this.listaAnimalesCarnivoros.remove(animalCarnivoroALiberar);
+					return true;
+				}
+			}
+		}
+		if(especie.equals(Especie.Oso)||especie.equals(Especie.Gallina)||especie.equals(Especie.Cerdo)) {
+			for(AnimalOmnivoro animalOmnivoroALiberar:listaAnimalesOmnivoros) {
+				if(animalOmnivoroALiberar.getIdAnimal()==idAnimal) {
+					this.listaAnimalesOmnivoros.remove(animalOmnivoroALiberar);
+					return true;
+				}
+			}
+		}
+		
+		return false;
+		
+	}
 }
