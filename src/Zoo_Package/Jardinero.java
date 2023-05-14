@@ -32,6 +32,15 @@ public class Jardinero extends Empleado{
 		}
 		return false;
 	}
+
+	public Boolean podarPlanta(Planta nuevaPlanta) {
+		
+		if(nuevaPlanta.getFuePodada()==false) {
+			nuevaPlanta.setFuePodada(true);
+			return true;
+		}
+		return false;
+	}
 	
 	
 }

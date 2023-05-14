@@ -386,7 +386,7 @@ public class Test {
 		assertNotNull(nuevoZoologico.buscarPlanta(nuevaPlanta.getIdPlanta()));
 	}
 	
-	//////////////TESTS DE ALIMENTACION//////////////
+	//////////////TESTS DE ALIMENTACION -  PODAR PLANTA//////////////
 	
 	@org.junit.Test
 	public void queElVeterinarioLeDeComidaAlAnimalHerbivoroYEsteComa() {
@@ -530,6 +530,7 @@ public class Test {
 		assertTrue(valorEsperado);
 	
 	}
+	
 	@org.junit.Test
 	public void queElJardineroExpongaAlSolALaPlanta() {
 		// Inicializacion de Variables
@@ -618,7 +619,36 @@ public class Test {
 		assertEquals(nivelDeHumedadEsperadoSiSeIntengaRegarConMayorHumedadA5,nuevaPlanta.getNivelDeHumedad());
 
 	}
+	
+	@org.junit.Test
+	public void queElJardineroPodeLaPlanta() {
+		// Inicializacion de Variables
+		String nombreZoo = "TEMAIKEN";
 		
+		Especie especie = Especie.Helecho;
+		Boolean fuePodada = false;
+		Sector idSector = Sector.Sector_4;
+		Integer idPlanta = 122;
+		
+		String nombreEmpleado = "Pedro",apellidoEmpleado= "Pascal";
+		Integer dniEmpleado= 30215620;
+		Sector idSectorEmpleado= Sector.Sector_4;
+		Double sueldo= 17284.99;		
+		
+		// Creacion de Objeto/s
+		Zoologico nuevoZoologico = new Zoologico(nombreZoo);
+		Planta nuevaPlanta = new Planta(especie, idSector, fuePodada, idPlanta);
+		Jardinero nuevoJardinero = new Jardinero(nombreEmpleado, apellidoEmpleado, dniEmpleado, sueldo, idSectorEmpleado);
+
+		//Agrego los Objetos al Zoologico
+		nuevoZoologico.agregarPlanta(nuevaPlanta);
+		nuevoZoologico.agregarJardinero(nuevoJardinero);
+		
+		//Metodos y Validación del Nuevo Test
+		nuevoJardinero.podarPlanta(nuevaPlanta);
+		assertTrue(nuevaPlanta.getFuePodada());
+	}
+	
 	
 	//////////////TESTS DE INGRESO A CUIDADOS Y ALTAS CON AUMENTO SALARIAL//////////////
 	
